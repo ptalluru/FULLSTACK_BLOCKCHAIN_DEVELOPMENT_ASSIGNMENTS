@@ -22,7 +22,7 @@ let isPrime = (num) => {
 }
 
 let factorial = (num) => {
-    if(num === 1){
+    if(num === 0){
         return 1;
     }else {
         return num * factorial(num-1);

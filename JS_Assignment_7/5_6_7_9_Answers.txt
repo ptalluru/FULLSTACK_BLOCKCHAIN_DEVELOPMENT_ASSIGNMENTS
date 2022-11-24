@@ -1,0 +1,42 @@
+5. What string method can be used to convert string into array ?
+
+Answer:- 
+    --> split('') method with empty string can be used to convert string into array.
+    --> Example :- 'string'.split('') will return [ 's', 't', 'r', 'i', 'n', 'g' ]
+
+
+
+6. What string method can be used to check the occurrence of a specified
+text in a string?
+
+Answer:-
+    --> One can use includes() which returns boolean to check the occurrence of a specified text in a string and also match() , matchAll(), search(), indexOf() etc can be used based on the requirement i.e whether we need index or position or boolean of the required text .  
+    --> Example :- let text = "Hello World, welcome to the universe.";
+                   text.includes("world");    // returns true
+
+
+
+7. How can you break a string to a newline in Javascript ?
+
+Answer:-
+    --> One can use \n regular expression to break the string to a newline.
+    --> Example :- console.log('which returns boolean'.split(' ').toString().replaceAll(',','\n'));
+        Output :- which
+                  returns
+                  boolean
+
+
+
+9. Give a correct verdict to users input if he enters "yes", "YES","Yes" ,etc
+(any combination) using string methods.
+How will you handle that ?
+
+Answer:-
+    --> I will try to convert the string either to upper case or lower case and compare the two strings or i will use localeCompare() method if i need to validate the two string based on different locale or in internationalization scenarios.
+    --> Example :- 
+                    1) str1.localeCompare(str2, undefined, { sensitivity: 'accent' }) === 0
+                    2) str1.toLocaleUpperCase === str2.toLocaleUpperCase
+                    3) str1.toUpperCase === str2.toUpperCase
+                    4) str1.toLowerCase === str2.toLowerCase
+
+                    

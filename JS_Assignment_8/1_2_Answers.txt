@@ -1,0 +1,26 @@
+1. Can we put duplicate values in the set object ?
+
+Answer:- Yes, we can put duplicate value in the set . 
+         However, that duplicate value into the set will be added into the set only once. Hence the Set is a collection of UNIQUE elements of any type. 
+
+
+
+
+2. Write the syntax for
+a) Creating new set object
+b) Adding new element to set object
+c) Deleting element from set object
+
+Answer:-
+
+a) Using new keyword : 1) let set = new Set();
+                       2) let setWithItems = new Set(["a","b"]);
+
+b) Elements can be added into the set object in two ways i.e using add method and one can pass the elements directly while creating Set object.
+    Example :- 1) let set = new Set();
+                set.add('a');
+               2) let set = new Set(["a","b"]);
+
+c) Elements in the set object can be deleted using inbuilt delete function by passing the required element to be deleted into that delete method.
+    Example :- let set = new Set(["a","b"]);
+               set.delete('b'); // return boolean i.e, if the element deleted returns true or else false .

@@ -1,0 +1,62 @@
+Javascript Assignment 10
+
+1. Are Higher Order functions and Call back functions the same ? If not,
+briefly explain about both functions.
+
+Answer :- No, Higher Order functions and Call back functions are not same.
+
+Higher Order Function :- 
+The function which takes another function as an argument or returns a function is known as a higher order function.
+
+Call back Function :-
+In JavaScript, the way to create a callback function is to pass it as a parameter to another function, 
+and then to call it back right after something has happened or some task is completed.
+
+
+
+2. Is filter a Higher Order function in Javascript ? If yes, why ?
+
+Answer:- Yes, The filter() function accepts the callback function to filter the out each element based on the condition set in the callback function ;
+
+
+
+
+3. Give an example of a Higher Order function and a call back function
+used in the same program.
+
+Answer :- Here , in the below code, filter is the Higher Order Function and anonymous function which accepts alpha as argument is a callback function. 
+
+const alpha = ['a','b','c','d'];
+const presentAlpha =students.filter( (alpha) => {
+    if(alpha==='c'){
+        return alpha
+    }
+});
+console.log(presentAlpha);
+
+
+
+
+4. Carefully check the example below:
+a) What will be the output of this program ?
+b) Which function is a Higher Order function here ?
+    const names= ['John', 'Tina','Kale','Max']
+    function useFunction(arr,fn){
+        for(let i=0; i<arr.length; i++){
+            fn(arr[i]);
+        }
+    }
+    function argFn (name){
+        console.log("Hello " + name );
+    }
+    useFunction(names,argFn);
+
+Answer:- 
+
+a)  Hello John
+    Hello Tina
+    Hello Kale
+    Hello Max
+
+b) useFunction(arr,fn) is the Higher Order Function because it is accepting another function as an argument.
+

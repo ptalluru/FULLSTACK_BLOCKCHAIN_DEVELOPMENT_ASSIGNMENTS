@@ -1,0 +1,45 @@
+Javascript Assignment 9
+
+1. Carefully observe this example.
+a) Is the InnerFunction() a closure?
+b) What is output of this program
+    function OuterFunction() { 
+        var outerVariable = 100;
+        function InnerFunction() {
+            alert(outerVariable);
+        }
+    return InnerFunction;
+    }
+    var innerFunc = OuterFunction();
+    innerFunc();
+
+Answer:-
+a) Yes, InnerFunction() is a closure.
+b) Error (alert is not defined) because in server side rendering browser related functions may not work in server side nodejs environment, so instead we can use console.log(outerVariable) which results 100.
+
+
+
+2. What is the difference between a closure and a scope ?
+
+Answer:- 
+If we declare any variables in a function, we can only access it in that function. These variables are said to be scoped to the function. 
+If we define any inner function within another function , this inner function is called a closure
+
+
+
+3. What is a lexical scope and how is it related to closure?
+
+Answer:- 
+Lexical scope is the environment that holds the variables of the InnerFunction as well as the OuterFunction.
+Closure is an InnerFunction which has access to variables of the OuterFunction which means the closure feature is using the lexical scope concept.
+
+
+
+4. Output of following closure ?
+    for (var i = 0; i < 3; i++) {
+        setTimeout(function log() {
+            console.log(i); // What is logged?
+        }, 1000);
+    }
+
+Answer:- 3 will be printed 3 times because setTimeout is a callback function which waits for the for loop to be completed . This can be resolved by using let instaed of var and the output will be 0,1,2 .

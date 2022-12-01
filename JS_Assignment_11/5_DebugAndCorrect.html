@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <script type="text/javascript">
+
+        /** 
+         * @PTalluru
+         * 
+         * 5. Debug the given JavaScript program and execute the correct code.
+         * 
+         * Since the question has document.write , i have implemented it as html page istead of normal js file.
+         * 
+        */
+        function thirdLargest(arr, arr_size) {
+            /* There should be at least three elements */
+            if (arr_size < 3) {
+                document.write(" Invalid Input ");
+                return;
+            }
+            let first = arr[0];
+            
+            for (let i = 1; i < arr_size; i++) {
+                if (arr[i] > first) {
+                    first = arr[i] ;
+                }
+            }
+
+            let second = Number.MIN_VALUE;
+            for (let i = 0; i < arr_size; i++){
+                if (arr[i] < first && arr[i] >= second) {
+                    second = arr[i];
+                }
+            }
+            
+            let third = Number.MIN_VALUE;
+            for (let i = 0; i < arr_size; i++){
+                if (arr[i] >= third && arr[i] < second) {
+                    third = arr[i];
+                }
+            }
+            document.write("The third Largest " + "element is ", third);
+        }
+        let arr = [12, 13, 1, 10, 34, 16]; //3rd largest is 13
+        let arr1 = [1,2,3,4,5,6,10,9] // 3rd largest is 6
+        let n = arr.length;
+        thirdLargest(arr, n);
+
+    </script>
+</body>
+
+</html>

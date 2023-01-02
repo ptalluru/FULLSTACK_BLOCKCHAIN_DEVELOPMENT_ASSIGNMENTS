@@ -1,0 +1,215 @@
+1). How does async/await help with performance and scalability?
+
+Answer:- 
+    async/await is one of the method to use asynchronous programming in javascript which help with performance and scalability.
+In synchronous style programming the thread has to wait until the task it is executing is finished to execute the next task 
+whereas in asynchronous style programming the same thread will executes multiple tasks while the one task is awaiting for the 
+result. This makes the async/await with better performance and also scalability(because now the same thread can execute more 
+tasks than before)
+
+
+
+
+2). Is it possible to use async/await with promise chains? If yes,how can this be achieved?
+
+Answer:- 
+    Yes,this can be achieved and following is an example to show how this can be achieved.
+(Under the hood async/await use the concept of promise)
+
+async doSomething(input) {
+  return functionThatReturnsPromise()
+    .then((a) => /* ... */)
+    .then((b) => /* ... */)
+    .then(async (c) => {
+      const result = await someService.createResult(input, c);
+      return result;
+    });
+};
+
+Note :- 
+
+Moreover, we shouldn't need to use "then" if we are leveraging async functions.
+
+async doSomething(input) {
+  const a = await functionThatReturnsPromise();
+  const b = await functionThatReturnsPromise();
+  const c = await functionThatReturnsPromise();
+  const result = await someService.createResult(input, c);
+  return result;
+};
+
+
+3). Give 3 real world examples where async/await has been used?
+
+Answer:- 
+    Youtube, Facebook ,Netflix etc . Async/await can be used based on the project requirement and most of the 
+real time projects are dynamic in nature. For example, Youtube will load many videos in the same page 
+but will not play them until we click on any particular video i.e it awaits, to be clicked on particular video .   
+
+
+
+
+4)
+        async function inc(x) {
+        x = x + (await 1);
+        return x; 
+        }
+        async function increment(x) {
+        x = x + 1;
+        return x;
+        }
+        inc(1).then(function (x) {
+        increment(x).then(function (x) {
+            console.log(x);
+        });
+        });
+
+Find output.
+
+Answer:- 'await' has no effect in this program because await has effect only on promise. So the output is 
+    3
+
+
+
+
+5)
+        let p = new Promise(function (resolve, reject) {
+        reject(new Error("some error"));
+        setTimeout(function () {
+            reject(new Error("some error"));
+        }, 1000);
+        reject(new Error("some error"));
+        });
+        p.then(null, function (err) {
+        console.log(1);
+        console.log(err);
+        }).catch(function (err) {
+        console.log(2);
+        console.log(err);
+        });
+
+Find output.
+
+Answer:-
+    1
+    Error: some error
+
+
+
+
+
+6)
+        async function f1() {
+        console.log(1);
+        }
+        async function f1() {
+        console.log(2);
+        }
+        console.log(3);
+        f1();
+        console.log(1);
+        f2();
+        async function f2() {
+        console.log("Go!");
+        }
+
+Find output.
+
+Answer:-
+    3
+    2
+    1
+    Go!
+
+
+
+
+7)
+        function resolveAfterNSeconds(n, x) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+            resolve(x);
+            }, n);
+        });
+        }
+        (function () {
+        let a = resolveAfterNSeconds(1000, 1);
+        a.then(async function (x) {
+            let y = await resolveAfterNSeconds(2000, 2);
+            let z = await resolveAfterNSeconds(1000, 3);
+            let p = resolveAfterNSeconds(2000, 4);
+            let q = resolveAfterNSeconds(1000, 5);
+            console.log(x + y + z + (await p) + (await q));
+        });
+        })();
+
+Find output.
+
+Answer:-
+    15
+
+
+
+
+
+8). Is it possible to nest async functions in JavaScript? Explain with examples.
+
+Answer:- Yes, it is possible to nest async functions.
+        Example:- In this example all the functions are async .When the function asyncCall() 
+        is invoked which await function a() to be resolved which further await for function b() to be resolved. 
+
+                    async function a() {
+                    let bResult = await b();
+                    console.log(bResult);
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                        resolve("resolved a");
+                        }, 2000);
+                    });
+                    }
+
+                    async function b() {
+                    console.log("calling b");
+                    return new Promise((resolve, reject) => {
+                        setTimeout(() => {
+                        resolve("resolved b");
+                        }, 2000);
+                    });
+                    }
+
+                    async function asyncCall() {
+                    console.log("calling");
+                    const result = await a();
+                    console.log(result);
+                    }
+
+                    asyncCall();
+
+                Output :-
+                        calling
+                        calling b
+                        resolved b
+                        resolved a
+
+
+
+
+
+9). What is the best way to avoid deadlocks when using async/await?
+
+Answer:-
+    Javascript is a single threaded , so in most of the cases deadlock may not occur. 
+    Deadlocks might occur when there is a race condition , in javascript the deadlock
+    might be possible when Worker process is executing the tasks along with main thread.
+    So, the best way to avoid deadlock is writing the code carefully in such a way that 
+    it may not cause deadlock .
+
+
+
+
+10). In which scenarios would you use synchronous code instead of asynchronous code?
+
+Answer:- One would use synchronous code over asynchronous code if the tasks are 
+            -> not event based , 
+            -> not independent ,
+            -> requires sequential execution.

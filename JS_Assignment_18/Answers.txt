@@ -1,0 +1,39 @@
+1. What is the difference between a generator and a function?
+
+Answer:-
+    In the normal function, control remains with the called function until, but the generator function 
+    allows the caller function to control the execution of a called function.
+
+
+
+2. What is the syntax of a generator?
+
+Answer:- 
+    The function keyword followed by '*' can be made as Generator Function. 
+            Syntax :- function* functionName() { }
+
+
+
+3. Are function generators iterable in JavaScript?
+
+Answer:- 
+    Upon calling Generator functions, returns the Generator object, which holds the entire Generator iterable 
+and can be iterated using next() method. Every next() call on the generator executes every line of code until 
+it encounters the next yield and suspends its execution temporarily.
+        Example :-
+
+            function* test() {
+                console.log("a");
+                yield "pause1";
+                console.log("b");
+                yield "pause2";
+                console.log("c");
+            }
+
+            let test1 = test();
+            test1.next(); //Output at this line     a
+            test1.next(); //Output at this line     a
+                                                    b
+            test1.next(); //Output at this line     a 
+                                                    b 
+                                                    c

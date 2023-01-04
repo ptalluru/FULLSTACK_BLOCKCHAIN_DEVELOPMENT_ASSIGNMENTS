@@ -1,0 +1,13 @@
+4. What is the error in the following code?
+
+        <!DOCTYPE html>
+        <body>
+            <p class="text">Hello World!</p>
+            <script>
+                document.getElementById("text").innerHTML = "Hi JS DOM";
+            </script>
+        </body>
+        </html>
+
+Answer:- In the above code , it is trying to change the innerHTML based on the id attribute 'text' but 
+in the given code the mentioned id attribute is not available instead the attribute value 'text' belongs to the class attribute.

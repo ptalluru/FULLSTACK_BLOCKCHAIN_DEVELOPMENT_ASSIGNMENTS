@@ -1,0 +1,19 @@
+<!-- 6. Using alert, prevent a person from leaving the screen using JS DOM. -->
+
+<!DOCTYPE html>
+<head>
+    <title>Prevent Leaving Site</title>
+</head>
+<body>
+    <form action="#">
+        <input type="text" name="username" id="u" placeholder="username"/><br/>
+        <input type="password" name="password" id="p" placeholder="password"><br/>
+        <button>Submit</button>
+    </form>
+    <script type="text/javascript">
+        window.onbeforeunload = function() {
+            return true;
+        };
+    </script>
+</body>
+</html>

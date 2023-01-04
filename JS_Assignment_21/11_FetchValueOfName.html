@@ -1,0 +1,19 @@
+<!-- 11. Fetch the value of name from the following form. -->
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Count P tags</title>
+</head>
+<body>
+    <form id="form1" onsubmit="getFormValue()">
+        Name : <input type="text" id="name"><br>
+        <button type="submit">Submit</button>
+    </form>
+    <script type="text/javascript">
+        function getFormValue(){
+            let name = document.getElementById('name').value;
+            document.write("Entered name : "+name);
+        }
+    </script>
+</body>
+</html>

@@ -7,14 +7,12 @@ findHappiness(“You give me the feeling of happiness”) -> Hurray
 */
 
 let findHappiness = (string) => {
-  let regex = /happiness/gi;
-  let result = regex.test(string);
-  if (result) {
-    console.log("Hurray!");
+  let happinessRegex = /\bhappiness\b/gi; // The "i" flag makes the regex case-insensitive
+  if (happinessRegex.test(string)) {
+    return "Hurray!";
   } else {
-    console.log("There is no happiness.");
+    return "There is no happiness.";
   }
 };
-
-findHappiness("Work makes me happy");
-findHappiness("You give me the feeling of HapPIness");
+console.log(findHappiness("Work makes me happy")); // "There is no happiness."
+console.log(findHappiness("You give me the feeling of hAppIness")); // "Hurray!"

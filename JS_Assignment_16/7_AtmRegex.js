@@ -7,3 +7,12 @@ Examples
 validatePIN("1234") ➞ true
 validatePIN("12345") ➞ false
 */
+
+let validatePIN = (pin) => {
+  return /^\d{4}$|^\d{6}$/g.test(pin);
+};
+
+console.log(validatePIN("1234")); //true
+console.log(validatePIN("12345")); //false
+console.log(validatePIN("123456")); //true
+console.log(validatePIN("123400")); //true

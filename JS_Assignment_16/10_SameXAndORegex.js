@@ -15,3 +15,19 @@ Notes
 ●Remember to return true if there aren't any x's or o's.
 ●Must be case insensitive.
 */
+
+let XO = (str) => {
+  let xRegex = /x/gi;
+  let oRegex = /o/gi;
+  // Use regex to count the number of x's and o's in the string
+  const xCount = (str.match(xRegex) || []).length;
+  const oCount = (str.match(oRegex) || []).length;
+
+  // Return true if the number of x's and o's are the same, else return false
+  return xCount === oCount;
+};
+
+console.log(XO("ooxx")); // true
+console.log(XO("xooxx")); // false
+console.log(XO("ooxXm")); // true
+console.log(XO("oOXXm")); // true

@@ -9,3 +9,13 @@ isValidHexCode("#CD5C5C") ➞ true
 isValidHexCode("#EAECEE") ➞ true
 isValidHexCode("#CD5C&C") ➞ false
 */
+
+let isValidHexCode = (hex) => {
+  return /^#[0-9A-Fa-f]{6}$/.test(hex);
+};
+
+console.log(isValidHexCode("#CD5C5C")); //true
+console.log(isValidHexCode("#EAECEE")); //true
+console.log(isValidHexCode("#CD5C&C")); //false
+console.log(isValidHexCode("#123456")); //true
+console.log(isValidHexCode("#abcdef")); //true
